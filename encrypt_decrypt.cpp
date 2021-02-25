@@ -22,8 +22,8 @@ int main()
 	char content{};
 	int choice{};
 	bool check{};
-	string alphabets{ "*ABCD.EFGHIJKLMNOPQRST\"UVWXYZ\'abcdefghijklmnopqrstuvwxyz0123456789! @#$%^&()-_=+-/,<>?;{}[]|:'\n'" };
-	string key{ " .:|][}{;?><,-+=_-/)(&^%$#@!9876543210XZNLWEB\"GJHQDYVTKFUOMPCIAS\'Rxznlwebgjhqdyvtkfuompciasr*'\n'" };
+	string alphabets{ "*ABCD.EFGHIJKLMNOPQRST\"UVWXYZ\'abcdefghijklmnopqrstuvwxyz0123456789! @#$%^&()_=+-/,<>?;{}[]|:'\n'" };
+	string key{ " GJHQD.;<,-/(^!502}96>18?34:7X]ZN+LWEB\"[YV&TKF$UOMP|CIAS\'Rxznlw_ebgjh%qdyv)tkfu@ompc=i{as#r*'\n'" };
 	cout << "Enter name of the file : ";
 	cin >> name;
 	name += ".txt";
@@ -72,7 +72,7 @@ int main()
 		if (!y_file) {
 			cerr << "\nUnable to open decrypted.txt file. Try again!" << endl;
 		}
-		
+
 		char c{};
 		while (x_file.get(c)) {
 			for (int i = 0; i < alphabets.length(); i++) {
