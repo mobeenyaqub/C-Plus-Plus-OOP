@@ -28,22 +28,24 @@ void Time::display_time(string time_check) const {
 
 	if (hours == 0 && minutes < 10 && time_check != " ")
 		cout << "\nTime in 12 hours clock =  " << 12 << ":0" << minutes << " am" << endl;
-	else if (hours == 0 && minutes > 10 && time_check != " ")
+	else if (hours == 0 && minutes >= 10 && time_check != " ")
 		cout << "\nTime in 12 hours clock =  " << 12 << ":" << minutes << " am" << endl;
 	else if (minutes < 10 && hours < 10 && time_check != " ")
 		cout << "\nTime in 12 hours clock =  " << "0" << hours << ":0" << minutes << " " << time_check << endl;
-	else if (minutes < 10 && hours > 10 && time_check != " ")
+	else if (minutes < 10 && hours >= 10 && time_check != " ")
 		cout << "\nTime in 12 hours clock =  " << hours << ":0" << minutes << " " << time_check << endl;
-	else if (minutes > 10 && hours < 10 && time_check != " ")
+	else if (minutes >= 10 && hours < 10 && time_check != " ")
 		cout << "\nTime in 12 hours clock =  " << "0" << hours << ":" << minutes << " " << time_check << endl;
 	else if (minutes >= 10 && hours >= 10 && time_check != " ")
 		cout << "\nTime in 12 hours clock =  " << hours << ":" << minutes << " " << time_check << endl;
 	else if (minutes < 10 && hours == 0)
 		cout << "\nTime in 24 hours clock =  " << "00:0" << minutes << endl;
+	else if (minutes >= 10 && hours == 0)
+		cout << "\nTime in 24 hours clock =  " << "00:" << minutes << endl;
 	else if (minutes < 10 && hours < 10)
 		cout << "\nTime in 24 hours clock =  " << "0" << hours << ":0" << minutes << " " << time_check << endl;
 	else if (minutes < 10 && hours > 10)
-		cout << "\nTime in 24 hours clock =  "<< hours << ":0" << minutes << " " << time_check << endl;
+		cout << "\nTime in 24 hours clock =  " << hours << ":0" << minutes << " " << time_check << endl;
 	else
 		cout << "\nTime in 24 hours clock =  " << hours << ":" << minutes << endl;
 
@@ -66,9 +68,14 @@ int main() {
 		cin >> minutes;
 	} while (minutes > 59);
 
-	if (hours <= 12) {
+	if (hours < 12) {
 		time.set_time(hours, minutes);
 		time.display_time("am");
+		time.display_time(" ");
+	}
+	else if (hours == 12) {
+		time.set_time(hours, minutes);
+		time.display_time("pm");
 		time.display_time(" ");
 	}
 	else {
